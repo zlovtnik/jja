@@ -4,6 +4,18 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/ORCL
+    username: ${oracle.username}
+    password: ${oracle.password}
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
 oracle:
   username: user
   password: pass
