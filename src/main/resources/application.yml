@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: app
+  output:
+    ansi:
+      enabled: ALWAYS
+oracle:
+  username: user
+  password: pass
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      group:
+        liveness:
+          include: ping,diskSpace
+      validate-group-membership: false
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
