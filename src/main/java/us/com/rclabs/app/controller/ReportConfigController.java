@@ -11,7 +11,7 @@ public class ReportConfigController {
 
     @GetMapping("/report-config")
     public String showReportConfigForm(Model model) {
-        // Add any necessary attributes to the model
+
         return "report-config";
     }
 

@@ -36,7 +36,7 @@ public class RouteConfig extends RouteBuilder {
             .setHeader("SOAPAction", constant(NAMESPACE + "/getListOfSubjectArea"))
             .setHeader("Content-Type", constant("text/xml;charset=UTF-8"))
             .setBody(constant(createXmlPayload()))
-            .to(SOAP_ENDPOINT + "?messageFactory=#messageFactory")
+            .to("spring-ws:" + SOAP_ENDPOINT + "?messageFactory=#messageFactory")
             .log(LoggingLevel.INFO, "Fechou! Requisição SOAP terminada pro arquivo ${header.CamelFileName}")
             .to("log:us.com.rclabs.app.routes?level=INFO");
     }
