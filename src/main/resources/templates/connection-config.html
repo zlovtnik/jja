@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connection Configuration</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
     <h1>Connection Configuration</h1>
-    <form action="/connection-config" method="post">
+
+    <div th:if="${param.error}" class="alert alert-danger">
+        Failed to save connection configuration
+    </div>
+    <div th:if="${param.success}" class="alert alert-success">
+        Connection configuration saved successfully
+    </div>
+
+    <form th:action="@{/connection-config}" th:object="${connectionConfig}" method="post">
         <label for="connectionName">Connection Name:</label>
-        <input type="text" id="connectionName" name="connectionName" required>
+        <input type="text" id="connectionName" th:field="*{connectionName}" required>
         <br>
         <label for="userID">User ID:</label>
-        <input type="text" id="userID" name="userID" required>
+        <input type="text" id="userID" th:field="*{userID}" required>
         <br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" th:field="*{password}" required>
         <br>
         <label for="url">URL:</label>
-        <input type="url" id="url" name="url" required>
+        <input type="url" id="url" th:field="*{url}" required>
         <br>
         <button type="submit">Save</button>
     </form>
