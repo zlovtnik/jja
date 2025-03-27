@@ -12,20 +12,20 @@ public class ParameterService {
     @Autowired
     private ParameterRepository parameterRepository;
 
-    public Parameter createParameter(Parameter parameter) {
+    public FndParameter createParameter(FndParameter parameter) {
         return parameterRepository.save(parameter);
     }
 
-    public Optional<Parameter> getParameterById(Long id) {
+    public Optional<FndParameter> getParameterById(Long id) {
         return parameterRepository.findById(id);
     }
 
-    public List<Parameter> getAllParameters() {
+    public List<FndParameter> getAllParameters() {
         return parameterRepository.findAll();
     }
 
-    public Parameter updateParameter(Long id, Parameter parameterDetails) {
-        Parameter parameter = parameterRepository.findById(id)
+    public FndParameter updateParameter(Long id, FndParameter parameterDetails) {
+        FndParameter parameter = parameterRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Parameter not found with id " + id));
 
         parameter.setName(parameterDetails.getName());
@@ -35,7 +35,7 @@ public class ParameterService {
     }
 
     public void deleteParameter(Long id) {
-        Parameter parameter = parameterRepository.findById(id)
+        FndParameter parameter = parameterRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Parameter not found with id " + id));
 
         parameterRepository.delete(parameter);

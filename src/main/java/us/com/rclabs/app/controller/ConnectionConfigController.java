@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import us.com.rclabs.app.config.ConnectionConfig;
+import us.com.rclabs.app.model.ConnectionConfig;
 
 /**
  * Controller responsible for handling connection configuration requests.
