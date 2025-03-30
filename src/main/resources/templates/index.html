@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Project with Thymeleaf</title>
+    <!-- Include jQuery from node_modules -->
+    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+    <!-- Include our custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to jQuery Project with Thymeleaf</h1>
+        <div id="content">
+            <p>This is a sample content.</p>
+            <!-- Example of Thymeleaf variable -->
+            <p th:text="${message}">Default message</p>
+        </div>
+    </div>
+
+    <!-- Include our custom JavaScript -->
+    <script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

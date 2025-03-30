@@ -1,0 +1,14 @@
+{
+  "name": "jquery-project",
+  "version": "1.0.0",
+  "description": "A jQuery project",
+  "main": "index.js",
+  "scripts": {
+    "start": "yarn serve",
+    "serve": "serve public"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "serve": "^14.2.1"
+  }
+}

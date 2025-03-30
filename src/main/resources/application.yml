@@ -15,8 +15,8 @@ spring:
       connection-test-query: SELECT 1 FROM DUAL
       transaction-isolation: TRANSACTION_READ_COMMITTED
     url: jdbc:oracle:thin:@//localhost:1521/FREE
-    username:
-    password:
+    username: system
+    password: 123Mudar
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
@@ -24,9 +24,9 @@ spring:
       dialect: org.hibernate.dialect.Oracle12cDialect
     show-sql: true
 oracle:
-  username:
-  password:
-  url:
+  username: rafael.cardoso@synchro.com.br
+  password: VGR3khe!kux8erf2rbq
+  url: https://eksz-test.fa.la1.oraclecloud.com/xmlpserver/services/v2/ReportService
 
 management:
   endpoints:
