@@ -22,10 +22,4 @@ public class WebServiceConfig {
         System.out.println("Message Factory: " + factory);
         return factory;
     }
-
-    @Bean
-    public WsdlDefinition wsdlDefinition() throws IOException {
-        Resource wsdlResource = new UrlResource("https://eksz-test.fa.la1.oraclecloud.com/xmlpserver/services/v2/ReportService?wsdl");
-        return new SimpleWsdl11Definition(wsdlResource);
-    }
 }
