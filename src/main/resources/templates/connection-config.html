@@ -1,35 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/base}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connection Configuration</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title layout:fragment="title">Connection Configuration</title>
 </head>
+
 <body>
-    <h1>Connection Configuration</h1>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Connection Configuration</h2>
 
-    <div th:if="${param.error}" class="alert alert-danger">
-        Failed to save connection configuration
-    </div>
-    <div th:if="${param.success}" class="alert alert-success">
-        Connection configuration saved successfully
-    </div>
+                <div th:if="${param.error}" class="alert alert-danger">
+                    Failed to save connection configuration
+                </div>
+                <div th:if="${param.success}" class="alert alert-success">
+                    Connection configuration saved successfully
+                </div>
 
-    <form th:action="@{/connection-config}" th:object="${connectionConfig}" method="post">
-        <label for="connectionName">Connection Name:</label>
-        <input type="text" id="connectionName" th:field="*{connectionName}" required>
-        <br>
-        <label for="userID">User ID:</label>
-        <input type="text" id="userID" th:field="*{userID}" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" th:field="*{password}" required>
-        <br>
-        <label for="url">URL:</label>
-        <input type="url" id="url" th:field="*{url}" required>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+                <form th:action="@{/connection-config}" th:object="${connectionConfig}" method="post"
+                    class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="connectionName" class="form-label">Connection Name:</label>
+                        <input type="text" class="form-control" id="connectionName" th:field="*{connectionName}"
+                            required>
+                        <div class="invalid-feedback">Please enter a connection name.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="userID" class="form-label">User ID:</label>
+                        <input type="text" class="form-control" id="userID" th:field="*{userID}" required>
+                        <div class="invalid-feedback">Please enter a user ID.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                        <div class="invalid-feedback">Please enter a password.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="url" class="form-label">URL:</label>
+                        <input type="url" class="form-control" id="url" th:field="*{url}" required>
+                        <div class="invalid-feedback">Please enter a valid URL.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

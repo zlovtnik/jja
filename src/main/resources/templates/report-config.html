@@ -1,27 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/base}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Configuration</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <title layout:fragment="title">Report Configuration</title>
 </head>
+
 <body>
-    <h1>Report Configuration</h1>
-    <form action="/report-config" method="post">
-        <label for="reportName">Report Name:</label>
-        <input type="text" id="reportName" name="reportName" required>
-        <br>
-        <label for="reportType">Report Type:</label>
-        <input type="text" id="reportType" name="reportType" required>
-        <br>
-        <label for="reportFrequency">Report Frequency:</label>
-        <input type="text" id="reportFrequency" name="reportFrequency" required>
-        <br>
-        <label for="reportFormat">Report Format:</label>
-        <input type="text" id="reportFormat" name="reportFormat" required>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Report Configuration</h2>
+
+                <form th:action="@{/report-config}" method="post" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="reportName" class="form-label">Report Name:</label>
+                        <input type="text" class="form-control" id="reportName" name="reportName" required>
+                        <div class="invalid-feedback">Please enter a report name.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reportType" class="form-label">Report Type:</label>
+                        <select class="form-select" id="reportType" name="reportType" required>
+                            <option value="">Select a report type</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a report type.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reportFrequency" class="form-label">Report Frequency:</label>
+                        <select class="form-select" id="reportFrequency" name="reportFrequency" required>
+                            <option value="">Select frequency</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a frequency.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reportFormat" class="form-label">Report Format:</label>
+                        <select class="form-select" id="reportFormat" name="reportFormat" required>
+                            <option value="">Select format</option>
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a format.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="scheduleDate" class="form-label">Schedule Date:</label>
+                        <input type="date" class="form-control date-input datepicker" id="scheduleDate"
+                            name="scheduleDate" required>
+                        <div class="invalid-feedback">Please select a schedule date.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="emailRecipients" class="form-label">Email Recipients:</label>
+                        <input type="email" class="form-control" id="emailRecipients" name="emailRecipients" multiple
+                            required>
+                        <div class="invalid-feedback">Please enter at least one email address.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

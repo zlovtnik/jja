@@ -1,28 +1,117 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/base}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jQuery Project with Thymeleaf</title>
-    <!-- Include jQuery from node_modules -->
-    <script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
-    <!-- Include our custom CSS -->
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title layout:fragment="title">Home - Your App</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Welcome to jQuery Project with Thymeleaf</h1>
-        <div id="content">
-            <p>This is a sample content.</p>
-            <!-- Example of Thymeleaf variable -->
-            <p th:text="${message}">Default message</p>
+    <div layout:fragment="breadcrumb">Home</div>
+    <div layout:fragment="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Welcome to Your App</h2>
+                        <p class="card-text">This is your dashboard home page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-database"></i> Connection Config
+                        </h5>
+                        <p class="card-text">Configure your database connections and settings.</p>
+                        <a th:href="@{/connection-config}" class="btn btn-primary">Go to Connection Config</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-file-alt"></i> Report Config
+                        </h5>
+                        <p class="card-text">Set up and manage your report configurations.</p>
+                        <a th:href="@{/report-config}" class="btn btn-primary">Go to Report Config</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-chart-bar"></i> Reports
+                        </h5>
+                        <p class="card-text">View and manage your generated reports.</p>
+                        <a th:href="@{/reports}" class="btn btn-primary">View Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Recent Activity</h5>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">New Report Generated</h6>
+                                    <small>3 days ago</small>
+                                </div>
+                                <p class="mb-1">Monthly sales report for March 2024</p>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Connection Updated</h6>
+                                    <small>5 days ago</small>
+                                </div>
+                                <p class="mb-1">Database connection settings modified</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">System Status</h5>
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Database Connection</h6>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <small>Connected to Oracle Database</small>
+                            </div>
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">RabbitMQ Status</h6>
+                                    <span class="badge bg-success">Active</span>
+                                </div>
+                                <small>Message queue is running</small>
+                            </div>
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">Last Report Run</h6>
+                                    <small>2 hours ago</small>
+                                </div>
+                                <small>Daily sales report completed successfully</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Include our custom JavaScript -->
-    <script th:src="@{/js/main.js}"></script>
 </body>
 
 </html>
