@@ -24,9 +24,9 @@ spring:
       dialect: org.hibernate.dialect.Oracle12cDialect
     show-sql: true
 oracle:
-  username: rafael.cardoso@synchro.com.br
-  password: VGR3khe!kux8erf2rbq
-  url: https://eksz-test.fa.la1.oraclecloud.com/xmlpserver/services/v2/ReportService
+  username: 
+  password: 
+  url: 
 
 management:
   endpoints:
